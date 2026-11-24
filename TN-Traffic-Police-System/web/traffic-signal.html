@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-Way Traffic Signal Simulator</title>
+    <link rel="stylesheet" href="css/traffic-signal.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button onclick="goBack()" class="back-btn">← Back</button>
+            <h1>🚦 4-Way Traffic Signal Simulator</h1>
+        </div>
+        <div class="header-right">
+            <span id="simulationStatus">⚫ Stopped</span>
+        </div>
+    </header>
+
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <div class="controls">
+            <button onclick="startSimulation()" class="ctrl-btn start-btn" id="startBtn">
+                ▶ Start Simulation
+            </button>
+            <button onclick="pauseSimulation()" class="ctrl-btn pause-btn" id="pauseBtn" disabled>
+                ⏸ Pause
+            </button>
+            <button onclick="resetSimulation()" class="ctrl-btn reset-btn">
+                🔄 Reset
+            </button>
+        </div>
+        
+        <div class="settings">
+            <div class="setting-item">
+                <label>Green Light Duration:</label>
+                <input type="range" id="greenDuration" min="3" max="15" value="8" onchange="updateSettings()">
+                <span id="greenValue">8s</span>
+            </div>
+            <div class="setting-item">
+                <label>Yellow Light Duration:</label>
+                <input type="range" id="yellowDuration" min="1" max="5" value="2" onchange="updateSettings()">
+                <span id="yellowValue">2s</span>
+            </div>
+            <div class="setting-item">
+                <label>Vehicle Spawn Rate:</label>
+                <input type="range" id="spawnRate" min="1" max="10" value="5" onchange="updateSettings()">
+                <span id="spawnValue">5</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Canvas Area -->
+    <div class="canvas-container">
+        <canvas id="trafficCanvas"></canvas>
+        
+        <!-- Traffic Stats -->
+        <div class="stats-overlay">
+            <div class="stat-box">
+                <div class="stat-label">Vehicles Passed</div>
+                <div class="stat-value" id="vehiclesPassed">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Current Vehicles</div>
+                <div class="stat-value" id="currentVehicles">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Waiting Vehicles</div>
+                <div class="stat-value" id="waitingVehicles">0</div>
+            </div>
+        </div>
+
+        <!-- Signal Legend -->
+        <div class="legend-overlay">
+            <h4>Legend:</h4>
+            <div class="legend-item">
+                <div class="vehicle-icon car-icon"></div>
+                <span>Car (Rectangle)</span>
+            </div>
+            <div class="legend-item">
+                <div class="vehicle-icon bike-icon"></div>
+                <span>Bike (Line)</span>
+            </div>
+            <div class="legend-item">
+                <div class="signal-light" style="background: #22c55e;"></div>
+                <span>Green - Go</span>
+            </div>
+            <div class="legend-item">
+                <div class="signal-light" style="background: #eab308;"></div>
+                <span>Yellow - Slow</span>
+            </div>
+            <div class="legend-item">
+                <div class="signal-light" style="background: #ef4444;"></div>
+                <span>Red - Stop</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/traffic-signal.js"></script>
+</body>
+</html>

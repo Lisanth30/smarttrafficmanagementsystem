@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Nadu Traffic Police - Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="emblem-small">
+                <img src="images/tn-police-logo.png" alt="Tamil Nadu Police Logo" width="50" height="50">
+            </div>
+            <div class="header-title">
+                <h1>Tamil Nadu Traffic Police</h1>
+                <p>Traffic Signal Management System</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-info">
+                <span class="user-icon">👤</span>
+                <span id="userName">User</span>
+                <span class="user-type" id="userType"></span>
+            </div>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="dashboard">
+            <div class="welcome-section">
+                <h2>Welcome to Traffic Control Dashboard</h2>
+                <p class="motto">சத்தியமே வெல்லும் - Truth Alone Triumphs</p>
+            </div>
+
+            <!-- Tamil Nadu Map Section -->
+            <div class="map-section">
+                <h3>🗺️ Tamil Nadu Traffic Signal Network</h3>
+                <div class="map-container">
+                    <svg viewBox="0 0 800 600" class="tn-map">
+                        <!-- Simplified Tamil Nadu Map Outline -->
+                        <path d="M 150 50 L 250 40 L 350 60 L 450 80 L 550 100 L 650 150 L 700 250 L 680 350 L 650 450 L 600 520 L 500 560 L 400 580 L 300 570 L 250 550 L 200 500 L 150 400 L 130 300 L 140 200 Z" 
+                              fill="#e0f2fe" 
+                              stroke="#0369a1" 
+                              stroke-width="3"/>
+                        
+                        <!-- Major Cities with Traffic Signals -->
+                        <!-- Chennai -->
+                        <g class="city" onclick="showSignalDetail('Chennai')">
+                            <circle cx="550" cy="350" r="15" fill="#dc2626" class="city-marker"/>
+                            <text x="550" y="385" text-anchor="middle" font-size="14" font-weight="bold">Chennai</text>
+                        </g>
+                        
+                        <!-- Coimbatore -->
+                        <g class="city" onclick="showSignalDetail('Coimbatore')">
+                            <circle cx="200" cy="350" r="12" fill="#ea580c" class="city-marker"/>
+                            <text x="200" y="380" text-anchor="middle" font-size="12">Coimbatore</text>
+                        </g>
+                        
+                        <!-- Madurai -->
+                        <g class="city" onclick="showSignalDetail('Madurai')">
+                            <circle cx="350" cy="480" r="12" fill="#ea580c" class="city-marker"/>
+                            <text x="350" y="510" text-anchor="middle" font-size="12">Madurai</text>
+                        </g>
+                        
+                        <!-- Trichy -->
+                        <g class="city" onclick="showSignalDetail('Trichy')">
+                            <circle cx="400" cy="380" r="12" fill="#ea580c" class="city-marker"/>
+                            <text x="400" y="410" text-anchor="middle" font-size="12">Trichy</text>
+                        </g>
+                        
+                        <!-- Salem -->
+                        <g class="city" onclick="showSignalDetail('Salem')">
+                            <circle cx="320" cy="250" r="10" fill="#f59e0b" class="city-marker"/>
+                            <text x="320" y="275" text-anchor="middle" font-size="11">Salem</text>
+                        </g>
+                        
+                        <!-- Tirunelveli -->
+                        <g class="city" onclick="showSignalDetail('Tirunelveli')">
+                            <circle cx="380" cy="550" r="10" fill="#f59e0b" class="city-marker"/>
+                            <text x="380" y="575" text-anchor="middle" font-size="11">Tirunelveli</text>
+                        </g>
+                    </svg>
+                    
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #dc2626;"></span>
+                            <span>Major Metro (100+ signals)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #ea580c;"></span>
+                            <span>Tier-1 City (50+ signals)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #f59e0b;"></span>
+                            <span>Tier-2 City (20+ signals)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Signal Control Section -->
+            <div class="control-section">
+                <h3>🚦 Traffic Signal Control</h3>
+                <div class="control-cards">
+                    <div class="control-card">
+                        <div class="card-icon">🚦</div>
+                        <h4>4-Way Signal Simulator</h4>
+                        <p>Interactive traffic signal with vehicle movement</p>
+                        <button onclick="openSignalSimulator()" class="action-btn primary">
+                            Open Simulator
+                        </button>
+                    </div>
+                    
+                    <div class="control-card">
+                        <div class="card-icon">📊</div>
+                        <h4>Traffic Statistics</h4>
+                        <p>View real-time traffic flow data</p>
+                        <button class="action-btn secondary">
+                            View Stats
+                        </button>
+                    </div>
+                    
+                    <div class="control-card">
+                        <div class="card-icon">⚙️</div>
+                        <h4>Signal Settings</h4>
+                        <p>Configure signal timing and patterns</p>
+                        <button class="action-btn secondary">
+                            Configure
+                        </button>
+                    </div>
+                    
+                    <div class="control-card">
+                        <div class="card-icon">📝</div>
+                        <h4>Violation Reports</h4>
+                        <p>Track and manage traffic violations</p>
+                        <button class="action-btn secondary">
+                            View Reports
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="stats-section">
+                <h3>📈 Quick Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">1,247</div>
+                        <div class="stat-label">Active Signals</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">98.5%</div>
+                        <div class="stat-label">System Uptime</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">342</div>
+                        <div class="stat-label">Violations Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">12.5k</div>
+                        <div class="stat-label">Vehicles/Hour</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

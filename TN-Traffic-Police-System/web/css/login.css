@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.login-box {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.emblem {
+    margin-bottom: 15px;
+}
+
+.emblem img {
+    display: block;
+    margin: 0 auto;
+}
+
+.header h1 {
+    color: #1e3c72;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.motto {
+    color: #d97706;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: italic;
+    margin: 5px 0;
+}
+
+.motto-tamil {
+    color: #059669;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.tagline {
+    color: #6b7280;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.login-type-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.type-btn {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #e5e7eb;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.type-btn:hover {
+    border-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.type-btn.active {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border-color: #2563eb;
+}
+
+.type-btn span {
+    font-size: 18px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group .icon {
+    font-size: 18px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: #6b7280;
+}
+
+.remember-me input {
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #3b82f6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+}
+
+.login-btn .arrow {
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.login-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+.register-section {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 2px solid #e5e7eb;
+    text-align: center;
+}
+
+.register-section p {
+    color: #6b7280;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.register-btn {
+    padding: 10px 30px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.register-btn:hover {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(245, 158, 11, 0.3);
+}
+
+.footer {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid #e5e7eb;
+    text-align: center;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.emergency {
+    color: #dc2626;
+    font-weight: 600;
+    margin-top: 8px;
+}

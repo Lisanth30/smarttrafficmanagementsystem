@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f3f4f6;
+    min-height: 100vh;
+}
+
+.header {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.back-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.header h1 {
+    font-size: 22px;
+}
+
+#simulationStatus {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.control-panel {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.ctrl-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+}
+
+.start-btn {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.start-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-2px);
+}
+
+.pause-btn {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+}
+
+.pause-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    transform: translateY(-2px);
+}
+
+.reset-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.reset-btn:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    transform: translateY(-2px);
+}
+
+.ctrl-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.settings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e5e7eb;
+}
+
+.setting-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.setting-item label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 14px;
+}
+
+.setting-item input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+.setting-item span {
+    color: #3b82f6;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.canvas-container {
+    margin: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    padding: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#trafficCanvas {
+    border: 3px solid #1e3c72;
+    border-radius: 8px;
+    background: #1f2937;
+    max-width: 100%;
+    height: auto;
+}
+
+.stats-overlay {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 24px;
+    color: #1e3c72;
+    font-weight: bold;
+}
+
+.legend-overlay {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.legend-overlay h4 {
+    color: #1e3c72;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+    font-size: 12px;
+}
+
+.vehicle-icon {
+    width: 30px;
+    height: 15px;
+    border: 2px solid #374151;
+}
+
+.car-icon {
+    background: #3b82f6;
+}
+
+.bike-icon {
+    background: #f59e0b;
+    height: 3px;
+    width: 25px;
+}
+
+.signal-light {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #374151;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+    }
+    
+    .stats-overlay,
+    .legend-overlay {
+        position: static;
+        margin-top: 15px;
+    }
+}
